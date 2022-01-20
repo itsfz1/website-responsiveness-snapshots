@@ -27,7 +27,12 @@ const captureScreenshot = async (link, device) => {
     const image = `${mediaLocation}/${domainName}_${device}_${Date.now()}.png`;
     const browser = await puppeteer.launch({
       headless: true,
-      args: ["--no-sandbox"],
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--single-process",
+      ],
     });
     const page = await browser.newPage();
     await page.setDefaultNavigationTimeout(60000);
