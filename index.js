@@ -8,12 +8,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const puppeteer = require("puppeteer");
 const fs = require("fs/promises");
-const mediaLocation = "/public/images";
+//const mediaLocation = "/public";
 
 const captureScreenshot = async (link, device) => {
   console.log("Inside screenshoot");
   try {
-    const domainName = link.slice(link.indexOf(".") + 1, link.lastIndexOf("."));
+    let domainName = link.slice(link.indexOf(".") + 1, link.lastIndexOf("."));
     const customDevices = {
       xl: {
         width: 1280,
@@ -24,7 +24,7 @@ const captureScreenshot = async (link, device) => {
         height: 1000,
       },
     };
-    const image = `${mediaLocation}/${domainName}_${device}_${Date.now()}.png`;
+    const image = `${domainName}_${device}_${Date.now()}.png`;
     const browser = await puppeteer.launch({
       headless: true,
       args: [
