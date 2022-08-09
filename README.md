@@ -6,3 +6,5 @@ downloaded. Also you can use this tool in a situation when you are require to se
 results to client :)
 
 **Note:** Time to download mostly depends on your site load time and your net connection
+
+### [DEMO](https://website-responsiveness-snaps.herokuapp.com/)
