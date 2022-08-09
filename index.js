@@ -58,7 +58,7 @@ app.get("/", (req, res) => {
 app.post("/mysnapshot", async (req, res) => {
   const { link, device } = req.body
   let image = ""
-  if (link !== undefined && link === "") {
+  if (link !== undefined && link !== "") {
     image = await captureScreenshot(link, device)
     const filename = path.basename(image)
     res.setHeader("Content-disposition", "attachment; filename=" + filename)
